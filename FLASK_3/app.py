@@ -25,7 +25,7 @@ import base64
 from Cryptodome.Cipher import AES
 from Cryptodome.Util.Padding import pad
 from cryptography.fernet import Fernet
-from flask import Flask, render_template, request, redirect, url_for, session, flash, render_template_string
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from BakingContestPeopleCreateDB import decrypt
 from config import SECRET_KEY
 
