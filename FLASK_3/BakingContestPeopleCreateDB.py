@@ -11,12 +11,13 @@ the Mentor can see the username password combos.
 
 import sqlite3
 from cryptography.fernet import Fernet
+from config import SECRET_KEY
 
 # get the encryption key
-with open('secret.key', 'rb') as key_file:
-    key = key_file.read()
+#with open('secret.key', 'rb') as key_file:
+    #key = key_file.read()
 # set the cipher
-cipher = Fernet(key)
+cipher = Fernet(SECRET_KEY)
 
 
 def encrypt(user_information) -> cipher:
