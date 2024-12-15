@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome, {{ username }}!</h1>
+<p>Security Level: {{ security_level }}</p>
+<ul>
+    <li><a href="{{ url_for('add_entry') }}">Add new baking contest entry</a></li>
+    <li><a href="{{ url_for('delete_baking_entry') }}">Delete Baking Contest Entry with encryption HMAC</a></li>
+    <li><a href="{{ url_for('list_individual_results') }}">Show Baking Contest Results for Current Baker</a></li>
+    {% if security_level == '3' %}
+        <li><a href="{{ url_for('add_new_user') }}">Add new Baker</a></li>
+        <li><a href="{{ url_for('list_results') }}">Show Baking Contest Results for All Bakers</a></li>
+        <li><a href="{{ url_for('list_users') }}">List Baking Contest Bakers</a></li>
+        <li><a href="{{ url_for('submit_vote') }}">Submit a Baking Contest Entry Vote</a></li>
+    {% elif security_level == '2' %}
+        <li><a href="{{ url_for('list_users') }}">List Baking Contest Bakers</a></li>
+        <li><a href="{{ url_for('submit_vote') }}">Submit a Baking Contest Entry Vote</a></li>
+    {% endif %}
+</ul>
+<a href="{{ url_for('logout') }}">Log out</a>
+{% endblock %}

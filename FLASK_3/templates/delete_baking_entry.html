@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Delete Baking Contest Entry</h1>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<form method="POST">
+    <label for="entry_id">EntryId:</label>
+    <input type="text" id="entry_id" name="entry_id">
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

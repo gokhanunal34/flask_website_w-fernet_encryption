@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Baking Contest Entry{% endblock %}
+
+{% block content %}
+<h1>Add a Baking Contest Entry</h1>
+<form method="POST">
+    <label>Name of Baking Item:</label>
+    <input type="text" name="name" required><br>
+    <label>Excellent Votes:</label>
+    <input type="number" name="excellent" required><br>
+    <label>OK Votes:</label>
+    <input type="number" name="ok" required><br>
+    <label>Bad Votes:</label>
+    <input type="number" name="bad" required><br>
+    <button type="submit">Submit</button>
+</form>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<a href="{{ url_for('home') }}">Go back to home page</a>
+{% endblock %}

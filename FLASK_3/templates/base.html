@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baking Contest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Baking Contest General Dashboard</h1>
+        <nav>
+            <a href="{{ url_for('home') }}"> - Home - </a>
+            {% if 'security_level' in session and session['security_level'] == '3' %}
+                <a href="{{ url_for('add_new_user') }}"> - Add New Baker - </a>
+                <a href="{{ url_for('list_users') }}"> - List Bakers - </a>
+                <a href="{{ url_for('list_results') }}"> - List Baking Contest Results - </a>
+                <a href="{{ url_for('add_entry') }}"> - Add New Baking Contest Entry - </a>
+                <a href="{{ url_for('submit_vote') }}"> - Submit a Baking Contest Entry Vote - </a>
+                <a href="{{ url_for('delete_baking_entry') }}"> - Delete Contest Entry HMAC - </a>
+            {% elif 'security_level' in session and session['security_level'] == '2' %}
+                <a href="{{ url_for('list_users') }}"> - List Bakers - </a>
+                <a href="{{ url_for('add_entry') }}"> - Add New Baking Contest Entry - </a>
+                <a href="{{ url_for('list_individual_results') }}"> - Show Baking Contest Results for Current Baker - </a>
+                <a href="{{ url_for('submit_vote') }}"> - Submit a Baking Contest Entry Vote - </a>
+                <a href="{{ url_for('delete_baking_entry') }}"> - Delete Contest Entry HMAC - </a>
+            {% elif 'security_level' in session %}
+                <a href="{{ url_for('list_individual_results') }}"> - Show Baking Contest Results for Current Baker - </a>
+                <a href="{{ url_for('delete_baking_entry') }}"> - Delete Contest Entry HMAC - </a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}"> - Log out - </a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

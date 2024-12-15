@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Contest Results{% endblock %}
+
+{% block content %}
+<h1>All Contest Entry Results</h1>
+<table>
+    <tr>
+        <th>Entry ID</th>
+        <th>User ID</th>
+        <th>Name of Baking Item</th>
+        <th>Excellent Votes</th>
+        <th>OK Votes</th>
+        <th>Bad Votes</th>
+    </tr>
+    {% for result in baking_contest_results %}
+    <tr>
+        <td>{{ result['EntryId'] }}</td>
+        <td>{{ result['UserID'] }}</td>
+        <td>{{ result['NameOfBakingItem'] }}</td>
+        <td>{{ result['NumExcellentVotes'] }}</td>
+        <td>{{ result['NumOkVotes'] }}</td>
+        <td>{{ result['NumBadVotes'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{{ url_for('home') }}">Go back to home page</a>
+{% endblock %}

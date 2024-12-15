@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{{ url_for('submit_vote') }}" method="post">
+        <label for="entry_id">Entry ID:</label>
+        <input type="text" id="entry_id" name="entry_id"><br>
+        <label for="excellent_votes">Number of Excellent Votes:</label>
+        <input type="text" id="excellent_votes" name="excellent_votes"><br>
+        <label for="ok_votes">Number of OK Votes:</label>
+        <input type="text" id="ok_votes" name="ok_votes"><br>
+        <label for="bad_votes">Number of Bad Votes:</label>
+        <input type="text" id="bad_votes" name="bad_votes"><br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock%}

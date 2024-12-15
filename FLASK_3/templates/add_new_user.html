@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Add a New Baking Contest User</h2>
+    <form method="POST" action="{{ url_for('add_new_user') }}">
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name"><br>
+
+        <label for="Age">Age:</label>
+        <input type="text" id="Age" name="Age"><br>
+
+        <label for="PhNum">Phone Number:</label>
+        <input type="text" id="PhNum" name="PhNum"><br>
+
+        <label for="SecurityLevel">Security Role Level:</label>
+        <input type="text" id="SecurityLevel" name="SecurityLevel"><br>
+
+        <label for="LoginPassword">Password:</label>
+        <input type="text" id="LoginPassword" name="LoginPassword"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>List of bakers in the baking contest</h2>
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+            <th>Security Level</th>
+            <th>Password
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{user['UserID'] }}</td>
+            <td>{{user['Name']}}</td>
+            <td>{{user['Age']}}</td>
+            <td>{{user['PhNum']}}</td>
+            <td>{{user['SecurityLevel']}}</td>
+            <td>{{user['LoginPassword']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href ="{{url_for('home')}}"> Back to Homepage</a>
+{% endblock %}

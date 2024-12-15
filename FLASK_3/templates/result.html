@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Result of your query</h2>
+    <p>{{msg | safe}}</p>
+    <a href ="{{url_for('home')}}"> Back to Homepage</a>
+{% endblock %}
