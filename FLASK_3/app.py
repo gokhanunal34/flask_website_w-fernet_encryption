@@ -27,12 +27,11 @@ from Cryptodome.Util.Padding import pad
 from cryptography.fernet import Fernet
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from BakingContestPeopleCreateDB import decrypt
-from config import SECRET_KEY
 
 # load the secret key and save it as the cipher
-# with open('secret.key') as key_file:
-    #key = key_file.read()
-cipher = Fernet(SECRET_KEY)
+with open('key.key') as key_file:
+    key = key_file.read()
+cipher = Fernet(key)
 
 # load the key with read binary mode
 with open('hmac_key.key', 'rb') as key_file:
