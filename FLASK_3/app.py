@@ -29,7 +29,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from BakingContestPeopleCreateDB import decrypt
 
 # load the secret key and save it as the cipher
-with open('key.key') as key_file:
+with open('secret.key') as key_file:
     key = key_file.read()
 cipher = Fernet(key)
 
